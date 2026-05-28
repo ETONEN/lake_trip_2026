@@ -7,6 +7,8 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;0,9..144,900;1,9..144,500&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&family=Noto+Serif+SC:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
 <style>
   :root{
     --ink:#23291f;--forest:#2e463a;--moss:#5d7355;--brass:#a9762f;--brass-lt:#c79a55;
@@ -79,7 +81,19 @@
   ul.bul li{margin:.4em 0;}
   footer{background:var(--ink);color:#c7cbbd;text-align:center;padding:34px 20px;font-size:.85rem;}
   footer em{color:var(--brass-lt);}
-  @media(max-width:560px){.stay{grid-template-columns:1fr;}.stay img{min-height:170px;}.links{columns:1;}body{font-size:16px;}}
+  #map{height:460px;width:100%;border-radius:16px;border:1px solid var(--line);box-shadow:var(--shadow);z-index:0;background:var(--parch-2);}
+  .map-legend{display:flex;flex-wrap:wrap;gap:18px;margin-top:14px;font-size:.9rem;color:#55604a;}
+  .map-legend i{display:inline-block;width:13px;height:13px;border-radius:50%;margin-right:6px;vertical-align:middle;border:1.5px solid #fff;box-shadow:0 1px 3px rgba(0,0,0,.3);}
+  .pin{font-family:"Fraunces",serif;font-weight:700;color:#fff;display:flex;align-items:center;justify-content:center;border:2px solid #fff;box-shadow:0 2px 6px rgba(0,0,0,.45);box-sizing:border-box;}
+  .pin-base{font-size:.66rem;border-radius:13px;width:100%;height:100%;letter-spacing:.02em;}
+  .pin-spot{border-radius:50%;width:100%;height:100%;}
+  .pin-home{font-size:.64rem;border-radius:6px;width:100%;height:100%;}
+  .pin-peak{background:var(--brass);}
+  .pin-lake{background:var(--moss);}
+  .pin-home{background:var(--ink);}
+  .leaflet-popup-content{font-family:"Newsreader","Noto Serif SC",serif;font-size:.92rem;color:var(--ink);margin:10px 12px;}
+  .leaflet-popup-content b{font-family:"Fraunces",serif;color:var(--forest);}
+  @media(max-width:560px){.day-imgs img{height:150px;}#map{height:380px;}}
 </style>
 </head>
 <body>
@@ -110,6 +124,19 @@
     <li><b>打车补缺。</b> 没意义的通勤步行(出站到青旅、上山口)用出租车解决。</li>
   </ul>
   <p>5 天版去掉了原 7 天里的两个"缓冲慢日",节奏会比 7 天紧一些(4 晚里含两个转场日),但强度仍压得很低,最"重"的也只是 Mam Tor 一段缓坡。</p>
+</section>
+
+<section>
+  <div class="sec-h"><span class="num">·</span><span class="tag">路线图</span></div>
+  <h2>互动地图</h2>
+  <p class="lead">可缩放、拖动,点任意标记看说明。<span style="color:var(--brass);">棕色</span>为峰区两天、<span style="color:var(--moss);">绿色</span>为温德米尔两天;虚线是火车主轴(峰区↔湖区都经曼城中转)。</p>
+  <div id="map"></div>
+  <div class="map-legend">
+    <span><i style="background:#23291f;"></i>曼城(起点/终点)</span>
+    <span><i style="background:#a9762f;"></i>峰区(Day 1–2)</span>
+    <span><i style="background:#5d7355;"></i>温德米尔(Day 3–4)</span>
+    <span>—— 火车主轴</span>
+  </div>
 </section>
 
 <section>
@@ -290,6 +317,46 @@
   山、湖与火车 · 5 天 4 晚 · 为 2 人同行定制<br>
   <em>价格与时刻为 2026 年估算,出行前请以各官网为准。</em>
 </footer>
+
+<script>
+(function(){
+  if(typeof L==="undefined"){var m=document.getElementById('map'); if(m){m.innerHTML='<div style="padding:24px;font-family:serif;color:#55604a;">地图需要联网加载,请连网后刷新页面。</div>';} return;}
+  var map=L.map('map',{scrollWheelZoom:false}).setView([54.0,-2.35],8);
+  L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png',{
+    attribution:'&copy; OpenStreetMap &copy; CARTO',maxZoom:19,subdomains:'abcd'
+  }).addTo(map);
+
+  function pin(type,size,html){return L.divIcon({className:'',html:'<div class="pin '+type+'">'+(html||'')+'</div>',iconSize:size,iconAnchor:[size[0]/2,size[1]/2]});}
+
+  var pts=[
+    {n:'曼城 Manchester',d:'起点 / 终点 · 火车出发与返回',c:'home',base:1,ll:[53.4775,-2.2309],label:'起/终'},
+    {n:'Edale(峰区大本营)',d:'Day 1–2 · YHA Edale,火车直达,出门即山',c:'peak',base:1,ll:[53.3661,-1.8160],label:'D1–2'},
+    {n:'Mam Tor',d:'峰区最上镜的山脊,打车上山口后缓坡15–20分钟登顶',c:'peak',base:0,ll:[53.3492,-1.8096]},
+    {n:'Speedwell 溶洞 · Castleton',d:'坐小船穿矿道进地下大厅,溶洞村逛街',c:'peak',base:0,ll:[53.3414,-1.7921]},
+    {n:'Windermere(湖区大本营)',d:'Day 3–4 · 青旅在火车站对面,玩船的基地',c:'lake',base:1,ll:[54.3800,-2.9058],label:'D3–4'},
+    {n:'Orrest Head',d:'镇后20分钟缓坡,俯瞰整个温德米尔湖',c:'lake',base:0,ll:[54.3863,-2.9039]},
+    {n:'Bowness 码头',d:'汽船枢纽,Freedom of the Lake 在此随上随下',c:'lake',base:0,ll:[54.3629,-2.9229]},
+    {n:'Wray Castle',d:'坐船到对岸的维多利亚哥特城堡,以船代车',c:'lake',base:0,ll:[54.4006,-2.9642]}
+  ];
+
+  var group=[];
+  pts.forEach(function(p){
+    var ic;
+    if(p.c==='home') ic=pin('pin-home',[46,24],p.label);
+    else if(p.base) ic=pin('pin-base pin-'+p.c,[46,24],p.label);
+    else ic=pin('pin-spot pin-'+p.c,[16,16],'');
+    var mk=L.marker(p.ll,{icon:ic}).addTo(map).bindPopup('<b>'+p.n+'</b><br>'+p.d);
+    group.push(p.ll);
+  });
+
+  // 火车主轴:峰区 ↔ 曼城 ↔ 湖区
+  L.polyline([[53.3661,-1.8160],[53.4775,-2.2309],[54.3800,-2.9058]],
+    {color:'#a9762f',weight:2.5,dashArray:'7,7',opacity:.75}).addTo(map);
+
+  map.fitBounds(L.latLngBounds(group).pad(0.18));
+  map.on('click',function(){map.scrollWheelZoom.enable();});
+})();
+</script>
 
 </body>
 </html>
