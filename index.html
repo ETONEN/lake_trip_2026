@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>峰区 + 温德米尔 · 火车优先 5 日手册</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;0,9..144,900;1,9..144,500&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&family=Noto+Serif+SC:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#23291f;--forest:#2e463a;--moss:#5d7355;--brass:#a9762f;--brass-lt:#c79a55;
+    --parch:#f4eede;--parch-2:#ece2cd;--stone:#d7cdb6;--cream:#fbf7ee;--line:#cbbf9f;
+    --shadow:0 18px 40px -22px rgba(35,41,31,.5);
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  html{scroll-behavior:smooth;}
+  body{background:var(--parch);color:var(--ink);font-family:"Newsreader","Noto Serif SC",serif;font-size:17px;line-height:1.72;-webkit-font-smoothing:antialiased;}
+  .wrap{max-width:880px;margin:0 auto;padding:0 22px;}
+  h1,h2,h3,h4{font-family:"Fraunces","Noto Serif SC",serif;line-height:1.12;font-weight:600;}
+  a{color:var(--brass);text-decoration:none;border-bottom:1px solid rgba(169,118,47,.35);}
+  a:hover{color:var(--forest);border-color:var(--forest);}
+  em{font-style:italic;color:var(--moss);}
+  .tag{font-family:"Fraunces",serif;font-size:.7rem;letter-spacing:.22em;text-transform:uppercase;color:var(--brass);font-weight:600;}
+  .hero{background:radial-gradient(120% 90% at 80% -10%, rgba(199,154,85,.25), transparent 60%),linear-gradient(160deg,#2c3f33 0%,#23291f 55%,#1a2017 100%);color:var(--cream);padding:74px 0 60px;position:relative;overflow:hidden;}
+  .hero:before{content:"";position:absolute;inset:0;opacity:.16;background-image:repeating-linear-gradient(90deg,transparent 0 38px,rgba(255,255,255,.04) 38px 39px),repeating-linear-gradient(0deg,transparent 0 38px,rgba(255,255,255,.04) 38px 39px);pointer-events:none;}
+  .hero .wrap{position:relative;}
+  .hero .kicker{font-family:"Fraunces",serif;letter-spacing:.32em;text-transform:uppercase;font-size:.72rem;color:var(--brass-lt);}
+  .hero h1{font-size:clamp(2.5rem,7vw,4.3rem);font-weight:900;margin:.18em 0 .12em;color:#fdfaf2;}
+  .hero h1 em{color:var(--brass-lt);font-weight:500;}
+  .hero .sub{font-size:1.15rem;color:#d9d2bf;max-width:46ch;}
+  .hero .meta{display:flex;flex-wrap:wrap;gap:10px;margin-top:26px;}
+  .pill{border:1px solid rgba(255,255,255,.28);border-radius:40px;padding:6px 15px;font-size:.82rem;color:#eee5cf;background:rgba(255,255,255,.04);}
+  section{padding:48px 0;border-bottom:1px solid var(--line);}
+  .sec-h{display:flex;align-items:baseline;gap:14px;margin-bottom:8px;}
+  .sec-h .num{font-family:"Fraunces",serif;font-weight:900;font-size:1.05rem;color:var(--brass);}
+  h2{font-size:clamp(1.7rem,4.5vw,2.4rem);color:var(--forest);}
+  .lead{color:#48543f;margin:14px 0 4px;font-size:1.05rem;}
+  .day{background:var(--cream);border:1px solid var(--line);border-radius:16px;padding:26px 26px 22px;margin:22px 0;box-shadow:var(--shadow);position:relative;overflow:hidden;}
+  .day:before{content:"";position:absolute;left:0;top:0;bottom:0;width:5px;background:linear-gradient(var(--brass),var(--moss));z-index:2;}
+  .day-imgs{position:relative;z-index:1;width:calc(100% + 52px);margin:-26px -26px 18px;display:grid;gap:5px;background:var(--stone);}
+  .day-imgs.two{grid-template-columns:1fr 1fr;}
+  .day-imgs .cap{position:relative;display:block;}
+  .day-imgs img{width:100%;height:190px;object-fit:cover;display:block;}
+  .day-imgs .cap span{position:absolute;bottom:8px;left:12px;color:#fff;font-family:"Fraunces",serif;font-size:.76rem;text-shadow:0 1px 6px rgba(0,0,0,.8);}
+  .day-top{display:flex;flex-wrap:wrap;align-items:center;gap:12px;margin-bottom:4px;}
+  .dnum{font-family:"Fraunces",serif;font-weight:900;font-size:.78rem;letter-spacing:.18em;text-transform:uppercase;color:var(--brass);}
+  .ddate{font-size:.86rem;color:var(--moss);}
+  .badge{margin-left:auto;font-family:"Fraunces",serif;font-size:.66rem;letter-spacing:.14em;text-transform:uppercase;font-weight:600;padding:4px 11px;border-radius:30px;border:1px solid;}
+  .b-easy{color:#3c6b4a;border-color:#9cc4a4;background:#eaf3ec;}
+  .b-mid{color:#9a6a1f;border-color:#d9b878;background:#f6ecd6;}
+  .day h3{font-size:1.5rem;color:var(--ink);margin:.1em 0 .35em;}
+  .day p{margin:.5em 0;color:#3a4233;}
+  .boat{background:#eef2ec;border-left:3px solid var(--moss);padding:10px 14px;border-radius:0 10px 10px 0;margin:12px 0;font-size:.96rem;}
+  .boat b{color:var(--forest);}
+  .logi{margin-top:14px;padding-top:13px;border-top:1px dashed var(--line);font-size:.9rem;color:#55604a;display:grid;gap:5px;}
+  .logi span b{font-family:"Fraunces",serif;color:var(--brass);font-weight:600;font-size:.74rem;letter-spacing:.1em;text-transform:uppercase;margin-right:7px;}
+  .stay{display:grid;grid-template-columns:140px 1fr;gap:0;background:var(--cream);border:1px solid var(--line);border-radius:14px;overflow:hidden;margin:16px 0;box-shadow:var(--shadow);}
+  .stay img{width:100%;height:100%;object-fit:cover;min-height:150px;background:var(--stone);}
+  .stay .si{padding:18px 20px;}
+  .stay h4{font-size:1.2rem;color:var(--forest);}
+  .stay .rate{font-size:.8rem;color:var(--brass);font-family:"Fraunces",serif;letter-spacing:.04em;}
+  .stay p{font-size:.92rem;color:#3a4233;margin:.45em 0;}
+  .note{background:var(--parch-2);border:1px solid var(--line);border-radius:14px;padding:20px 22px;margin:18px 0;}
+  .note h4{color:var(--forest);font-size:1.15rem;margin-bottom:.3em;}
+  .note.warn{background:#f8eeda;border-color:#e0c489;}
+  .note.warn h4{color:#9a6a1f;}
+  .budget{width:100%;border-collapse:collapse;margin:16px 0;font-size:.95rem;background:var(--cream);border-radius:12px;overflow:hidden;box-shadow:var(--shadow);}
+  .budget th,.budget td{padding:11px 14px;text-align:left;border-bottom:1px solid var(--line);}
+  .budget th{background:var(--forest);color:var(--cream);font-family:"Fraunces",serif;font-weight:600;font-size:.82rem;letter-spacing:.06em;}
+  .budget td:nth-child(2),.budget td:nth-child(3){text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap;}
+  .budget tr:last-child td{border-bottom:none;}
+  .budget .total td{background:var(--parch-2);font-weight:600;color:var(--forest);font-size:1.05rem;}
+  .budget .total td:first-child{font-family:"Fraunces",serif;}
+  .links{columns:2;column-gap:30px;font-size:.92rem;}
+  .links li{break-inside:avoid;margin-bottom:9px;list-style:none;padding-left:16px;position:relative;}
+  .links li:before{content:"›";position:absolute;left:0;color:var(--brass);}
+  ul.bul{margin:.6em 0 .2em 0;padding-left:1.2em;}
+  ul.bul li{margin:.4em 0;}
+  footer{background:var(--ink);color:#c7cbbd;text-align:center;padding:34px 20px;font-size:.85rem;}
+  footer em{color:var(--brass-lt);}
+  @media(max-width:560px){.stay{grid-template-columns:1fr;}.stay img{min-height:170px;}.links{columns:1;}body{font-size:16px;}}
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="wrap">
+    <div class="kicker">Manchester · Peak District · Windermere</div>
+    <h1>山、湖与<em>火车</em><br>背包客 5 日手册</h1>
+    <p class="sub">从曼城出发,以火车为主轴、以船代车、以打车补缺。精简到 5 天 4 晚,只留两样招牌:峰区的山脊与矿船,温德米尔的湖与船。</p>
+    <div class="meta">
+      <span class="pill">5 天 4 晚 · 6/22–26(示例,窗口内可调)</span>
+      <span class="pill">2 人同行</span>
+      <span class="pill">峰区 2 晚 · 温德米尔 2 晚</span>
+      <span class="pill">强度:轻松为主</span>
+    </div>
+  </div>
+</header>
+
+<div class="wrap">
+
+<section>
+  <div class="sec-h"><span class="num">00</span><span class="tag">怎么读这份手册</span></div>
+  <h2>三条主线</h2>
+  <p class="lead">整趟按你的三个硬条件设计,落到每一天:</p>
+  <ul class="bul">
+    <li><b>火车优先。</b> 城际移动全是火车;峰区靠 Hope Valley 线 + 步行,湖区靠直达 Windermere 的支线。</li>
+    <li><b>以船代车。</b> 湖区内部尽量用湖上汽船 + 步行,不碰长途大巴;Castleton 的溶洞本身就是坐船进去的。</li>
+    <li><b>打车补缺。</b> 没意义的通勤步行(出站到青旅、上山口)用出租车解决。</li>
+  </ul>
+  <p>5 天版去掉了原 7 天里的两个"缓冲慢日",节奏会比 7 天紧一些(4 晚里含两个转场日),但强度仍压得很低,最"重"的也只是 Mam Tor 一段缓坡。</p>
+</section>
+
+<section>
+  <div class="sec-h"><span class="num">01</span><span class="tag">逐日行程</span></div>
+  <h2>五天,一天一页</h2>
+
+  <div class="day">
+    <div class="day-top"><span class="dnum">Day 1</span><span class="ddate">6/22 周一 · 进峰区</span><span class="badge b-easy">轻松</span></div>
+    <h3>抵达埃代尔 Edale</h3>
+    <p>曼城 Piccadilly 上车,沿 Hope Valley 线约 50 分钟直达 Edale——被群山环抱、只有一条主街的山谷村,也是长距离步道"奔宁之路"的起点。今天不安排强度:放下行李,沿谷地走一小段,傍晚去村里的 <em>Old Nags Head</em> 老酒吧吃第一顿,它就是奔宁之路的"零公里"地标。</p>
+    <div class="logi">
+      <span><b>住</b>YHA Edale(独卫私人房)· 2 晚</span>
+      <span><b>行</b>火车 曼城→Edale 约 50 分钟 · 出站打车到青旅(约 2.5km)</span>
+      <span><b>吃</b>Old Nags Head 酒吧晚餐</span>
+    </div>
+  </div>
+
+  <div class="day">
+    <div class="day-imgs two">
+      <span class="cap"><img src="https://lh3.googleusercontent.com/place-photos/AJRVUZNNyBfgszDPZoiFjytkBcovMWboK66n2mGriLh1Jgg1HvjLBJnRQld09YoYdujPcqXNxJiRo-a51qZzeCu_t3saU2ClSIFmXyKfxuLptLIFhyImNY7vppOB1403UxMmWnL5HuYGlAVsWV_YqHo=s4800-w800-h600" alt="Mam Tor" loading="lazy"><span>Mam Tor 山脊</span></span>
+      <span class="cap"><img src="https://lh3.googleusercontent.com/place-photos/AJRVUZPf2UP_iyZirFelbXojWBNT4wzrWHUkJ7oJjqbq4QArjfuo9KMvXCNjDFlOK_8IbeIfu0qpBYr5qCRETWFFh4xDN_BC4dlZWlw1UT5kIBbGorIIau04ZNBATYa9-K8XZZLz6tI6hn7NObtAr8X4TVz8mg=s4800-w800-h600" alt="Speedwell Cavern" loading="lazy"><span>Speedwell 溶洞</span></span>
+    </div>
+    <div class="day-top"><span class="dnum">Day 2</span><span class="ddate">6/23 周二 · 峰区</span><span class="badge b-mid">轻–中</span></div>
+    <h3>Mam Tor 山脊 + Castleton 溶洞村</h3>
+    <p>把"看大景"和"走一天"分开:打车直接送到山口 <em>Mam Nick</em>,沿铺装步道走 15–20 分钟缓坡登上 Mam Tor 顶——一侧 Edale 谷、一侧 Hope 谷,峰区最上镜的脊线尽收眼底,几乎不费腿。下山后打车到 Castleton 石头村:看诺曼时代的 Peveril 城堡残迹、逛窄巷,重点钻进 <b>Speedwell 溶洞</b>。</p>
+    <div class="boat"><b>🚣 船点 1 ·</b> Speedwell 溶洞要先下 106 级台阶,再<b>登上一条小船</b>,在 230 年历史的铅矿水道里穿行,驶进巨大的"无底洞"地下厅——你这趟第一段、也是最特别的一段水路。成人约 £9.5–12.5,官网提前一晚订有早鸟折扣。</p>
+    <div class="logi">
+      <span><b>住</b>YHA Edale</span>
+      <span><b>行</b>打车 Edale↔Mam Nick↔Castleton(乡村出租车需提前电话预约)</span>
+      <span><b>玩</b>Mam Tor 顶 · Speedwell 溶洞(船) · Castleton 村</span>
+    </div>
+  </div>
+
+  <div class="day">
+    <div class="day-imgs">
+      <span class="cap"><img src="https://lh3.googleusercontent.com/place-photos/AJRVUZMmh1Efi23uQsOYjzW2Jy4-p8nL5G-AxVbZ8zYruq_9gqaVMGNcu4u9mccxK6lwU2xAZoXYDFSZ7q1wUZPIFuxxVsDQRUi_i4kGoWVTT3z7N3z7YoDAMxJ4Njd1_JXATac1zVsoWUHuhjl_9w=s4800-w800-h600" alt="Orrest Head" loading="lazy"><span>Orrest Head 俯瞰温德米尔</span></span>
+    </div>
+    <div class="day-top"><span class="dnum">Day 3</span><span class="ddate">6/24 周三 · 转场湖区</span><span class="badge b-easy">轻松</span></div>
+    <h3>转场 Windermere,初见湖区</h3>
+    <p>火车日,风景一路升级:Edale→曼城→Oxenholme→Windermere,全程铁路约 2.5–3 小时。青旅就在 Windermere 火车站对面,放下大包后,花 20 分钟走上镇后的 <em>Orrest Head</em> 观景台——"湖区之父"瓦特金少年时第一次望见湖区的地方,缓坡好走,却给你俯瞰温德米尔全湖的开场。</p>
+    <div class="boat"><b>🚢 船点 2 ·</b> 傍晚走到湖边坐一程 <b>Windermere 汽船</b>。建议买 <b>Freedom of the Lake</b> 24 小时无限次票(成人 £32),今明两天随上随下。夏至前后近 22:00 才天黑,黄昏湖面格外长。</p>
+    <div class="logi">
+      <span><b>住</b>Lakes Boutique Hostel Windermere(私人房)· 2 晚</span>
+      <span><b>行</b>全程火车;站口到青旅步行可达</span>
+      <span><b>玩</b>Orrest Head 观景 · 温德米尔湖傍晚船</span>
+    </div>
+  </div>
+
+  <div class="day">
+    <div class="day-imgs two">
+      <span class="cap"><img src="https://lh3.googleusercontent.com/places/ANXAkqGYUU36od_3nuh1OkAwVjAzMbJ1P9deAkyZKI4hma0A_xVwxoNRe9J8tgOFXR0wVFdXv6Z1FjGvQGqXtv5T8YX6LQ4NPU0qp50=s4800-w800-h600" alt="Windermere lake cruise" loading="lazy"><span>温德米尔湖汽船</span></span>
+      <span class="cap"><img src="https://lh3.googleusercontent.com/place-photos/AJRVUZMsk4o79DIKV4pixFTy9SS079NJJt9BG6NCtEVAGNj93QI6U3tVsaBEZlGGyKstdoUB3NYz5An5U8JlL9BWmxHAsvHXw-b13tncOw84zguiaAsJND8RgwUomoCfc2AVULzjJoOywC30LnWj-A=s4800-w800-h600" alt="Wray Castle" loading="lazy"><span>Wray Castle</span></span>
+    </div>
+    <div class="day-top"><span class="dnum">Day 4</span><span class="ddate">6/25 周四 · 湖区</span><span class="badge b-easy">轻松</span></div>
+    <h3>整天泡在湖上(零巴士)</h3>
+    <p>用 24 小时船票把湖玩透:从 Bowness 坐船到 <em>Waterhead/Ambleside</em> 逛户外小镇,再坐船到对岸的 <em>Wray Castle</em>——一座维多利亚哥特城堡,草坪与湖景开阔,内部可随意进出、很适合放空。全天"船 + 平地湖滨"为主,几乎零爬升,是这趟最松的一天。</p>
+    <div class="boat"><b>🚢 船点 3 ·</b> 今天就是"以船代车"的极致:Bowness ↔ Waterhead ↔ Wray Castle ↔ Lakeside 全靠汽船串联,昨天那张 Freedom 票继续覆盖到中午。</p>
+    <div class="logi">
+      <span><b>住</b>Lakes Boutique Hostel Windermere</span>
+      <span><b>行</b>湖上汽船 + 步行</span>
+      <span><b>玩</b>Ambleside 小镇 · Wray Castle(国民信托)· 湖滨平路</span>
+    </div>
+  </div>
+
+  <div class="day">
+    <div class="day-top"><span class="dnum">Day 5</span><span class="ddate">6/26 周五 · 返程</span><span class="badge b-easy">轻松</span></div>
+    <h3>湖边告别,火车回家</h3>
+    <p>上午退房后行李寄存前台,沿湖边慢走、Bowness 逛逛或再坐一小程船,午后从 Windermere 站坐火车回曼城(经 Oxenholme),下午到家,行程闭环。</p>
+    <div class="logi">
+      <span><b>行</b>火车 Windermere→曼城 约 2 小时</span>
+      <span><b>玩</b>Bowness 湖滨 · 上午自由活动</span>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="sec-h"><span class="num">02</span><span class="tag">住宿</span></div>
+  <h2>两家青旅,都订独卫私人房</h2>
+  <p class="lead">按你的底线(干净、安全、无异味)筛选,一律建议订<b>带独立卫浴的私人房</b>——彻底规避公共浴室的异味与卫生风险,白天到公共区社交、晚上回房安睡,进退自如。</p>
+
+  <div class="stay">
+    <img src="https://lh3.googleusercontent.com/places/ANXAkqHJNa1hxI9tHmnP8BFnt808WGZ32ZpTdsjJ2Ed0cA6DDvgLhyhXZNFIp-wX1Su8-3Xyq6GbhOvdyEhrFp9x1CbREmhfZiHug_s=s4800-w800-h600" alt="YHA Edale">
+    <div class="si">
+      <h4>YHA Edale</h4>
+      <div class="rate">★ 4.5 · 峰区 · 第 1–2 晚</div>
+      <p>谷地中的活动型青旅,有带独卫的私人房,住客反复夸"干净整洁"。离火车站约 2.5km(打车进出),出门即山。</p>
+      <p><a href="https://www.yha.org.uk/hostel/yha-edale" target="_blank">yha.org.uk · YHA Edale</a></p>
+    </div>
+  </div>
+
+  <div class="stay">
+    <img src="https://lh3.googleusercontent.com/places/ANXAkqHcTZMcIBA_wG7_3FEJGF7Q7IWFJKPK9UPU_oLbU9H1M4bBPhpAtw2xVjsWAW-3-QqmetYWF_-o_kopSExotUEVILB9qQ8wpZw=s4800-w800-h600" alt="Lakes Boutique Hostel Windermere">
+    <div class="si">
+      <h4>Lakes Boutique Hostel</h4>
+      <div class="rate">★ 4.7 · Windermere · 第 3–4 晚</div>
+      <p>就在 Windermere 火车站对面,评价干净、床舒服。规模偏小、像精品小青旅,<b>务必尽早电话确认有你要的房型</b>(+44 15394 46374);订不到就退住镇上干净 B&amp;B。</p>
+      <p><a href="https://lakeshostel.co.uk/" target="_blank">lakeshostel.co.uk</a></p>
+    </div>
+  </div>
+
+  <div class="note warn">
+    <h4>关于空调:这里基本用不上,也基本没有</h4>
+    <p>湖区/峰区六月白天通常只有 18–22°C,夜里更凉(10–13°C),青旅与 B&amp;B 几乎都没有空调,也确实不需要。万一碰上罕见热浪,做法是订房时要一台风扇 + 一间窗户能完全打开的房间。<b>不建议为"有没有空调"去筛住宿</b>,会把这一带最好的几家都排除掉。</p>
+  </div>
+</section>
+
+<section>
+  <div class="sec-h"><span class="num">03</span><span class="tag">为你而设</span></div>
+  <h2>这趟的三段水路</h2>
+  <p class="lead">你喜欢船,所以特意串了三段不同类型的船:</p>
+  <ul class="bul">
+    <li><b>地下矿船 ·</b> Castleton 的 Speedwell 溶洞,坐小船穿过 230 年的矿道进地下大厅。<a href="https://speedwellcavern.co.uk/" target="_blank">speedwellcavern.co.uk</a></li>
+    <li><b>大湖汽船 ·</b> 温德米尔(英格兰最大湖),Freedom of the Lake 24 小时无限次 £32,1891 年的老蒸汽船改装的 MV Tern 仍在跑。<a href="https://www.windermere-lakecruises.co.uk/" target="_blank">windermere-lakecruises.co.uk</a></li>
+    <li><b>跨湖到城堡 ·</b> 坐船到对岸 Wray Castle,以船代替开车。</li>
+  </ul>
+</section>
+
+<section>
+  <div class="sec-h"><span class="num">04</span><span class="tag">住宿里的社交</span></div>
+  <h2>怎么拿到"好的社交体验"又有安全感</h2>
+  <p class="lead">想在住宿里跟陌生人交流,又怕碰到不靠谱的人、担心英语。靠谱与否跟来自哪里没有稳定关系,真正有效的是这几个杠杆:</p>
+  <ul class="bul">
+    <li><b>选对青旅类型。</b> 峰区/湖区的青旅(尤其 YHA)主要是家庭、徒步者、户外情侣和上了年纪的旅人——安静、早睡、不是派对青旅。</li>
+    <li><b>独卫私房 = 进退自如。</b> 想聊就去公共厨房 / 吧台 / 火炉边,聊累了回自己的房间,既社交也安全私密。</li>
+    <li><b>看评论关键词。</b> 找 "quiet / friendly / families / clean" 多、"party" 少的;这两家本就是按这个挑的。</li>
+    <li><b>低压力场景。</b> 傍晚的青旅吧台最自然——大家刚徒步回来,一句"今天走的哪条线?"就能聊起来。</li>
+    <li><b>英语够用就行。</b> 这种小天聊不需要复杂句;手机翻译软件兜底,工作人员也都习惯接待国际客人。当练习,别当考试。</li>
+  </ul>
+</section>
+
+<section>
+  <div class="sec-h"><span class="num">05</span><span class="tag">预算</span></div>
+  <h2>预算表(每人 · 2 人分摊房费)</h2>
+  <p class="lead">以下为<b>每人</b>估算,两人合住私人房已按对半计;餐饮按全程在外吃。不含到曼城前的费用与购物。价格随日期波动,尽早订票订房锁价。</p>
+  <table class="budget">
+    <thead><tr><th>项目</th><th>低 (£)</th><th>高 (£)</th></tr></thead>
+    <tbody>
+      <tr><td>住宿(独卫私房,4 晚,÷2)</td><td>160</td><td>235</td></tr>
+      <tr><td>城际火车(往返三段)</td><td>70</td><td>110</td></tr>
+      <tr><td>打车(全程分摊后)</td><td>30</td><td>45</td></tr>
+      <tr><td>船(温德米尔无限次票等)</td><td>32</td><td>48</td></tr>
+      <tr><td>景点(Speedwell 溶洞等)</td><td>12</td><td>25</td></tr>
+      <tr><td>餐饮(5 天,早 + 午 + 酒馆晚餐)</td><td>150</td><td>225</td></tr>
+      <tr><td>机动 / 缓冲(约 10%)</td><td>45</td><td>70</td></tr>
+      <tr class="total"><td>每人合计</td><td>≈ 500</td><td>≈ 760</td></tr>
+    </tbody>
+  </table>
+  <p style="font-size:.92rem;color:#55604a;">两人合计约 <b>£1,000 – £1,520</b>,折合人民币约 <b>¥4,700 – ¥7,100 / 人</b>(汇率按约 ×9.3,仅供参考)。无痛压预算:办一张 26 岁以下/26–30 Railcard(火车约打三分之二价)、火车买 Advance 早鸟票、船买一次 24 小时 Freedom 票覆盖两天。</p>
+</section>
+
+<section>
+  <div class="sec-h"><span class="num">06</span><span class="tag">实用信息</span></div>
+  <h2>出发前清单</h2>
+  <ul class="bul">
+    <li><b>现在就订。</b> 六月住宿很满,尤其那两晚 Windermere;火车提前买 Advance 票更便宜。</li>
+    <li><b>打车要预约。</b> Edale / Hope 这类乡村出租车少,提前电话约(让青旅前台帮约最省事)。</li>
+    <li><b>装备。</b> 防水冲锋衣 + 防水登山鞋是硬需求,山区一天几变天。5 天行程衣物直接带够,不必中途洗。</li>
+    <li><b>导航。</b> 先在 OS Maps / AllTrails 下离线地图;Mam Tor 段路线简单清晰。</li>
+    <li><b>天黑很晚。</b> 夏至前后近 22:00 才黑,徒步与坐船时间都很宽裕。</li>
+  </ul>
+
+  <h3 style="margin:26px 0 10px;color:var(--forest);font-size:1.25rem;">订票与官网</h3>
+  <ul class="links">
+    <li><a href="https://www.nationalrail.co.uk/" target="_blank">National Rail 火车查询/订票</a></li>
+    <li><a href="https://www.thetrainline.com/" target="_blank">Trainline 火车订票</a></li>
+    <li><a href="https://www.windermere-lakecruises.co.uk/" target="_blank">Windermere 汽船</a></li>
+    <li><a href="https://speedwellcavern.co.uk/" target="_blank">Speedwell 溶洞(船)</a></li>
+    <li><a href="https://www.nationaltrust.org.uk/visit/lake-district/wray-castle" target="_blank">Wray Castle</a></li>
+    <li><a href="https://www.yha.org.uk/hostel/yha-edale" target="_blank">YHA Edale</a></li>
+    <li><a href="https://lakeshostel.co.uk/" target="_blank">Lakes Boutique Hostel</a></li>
+    <li><a href="https://www.railcard.co.uk/" target="_blank">Railcard 铁路卡</a></li>
+  </ul>
+</section>
+
+</div>
+
+<footer>
+  山、湖与火车 · 5 天 4 晚 · 为 2 人同行定制<br>
+  <em>价格与时刻为 2026 年估算,出行前请以各官网为准。</em>
+</footer>
+
+</body>
+</html>
